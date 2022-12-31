@@ -1,0 +1,19 @@
+===============================================================================
+                                Chess V2.0
+===============================================================================
+
+This is a chess game with an AI that is run through Golang, and a GUI that is
+run through React. The AI is a minimax algorithm with alpha-beta pruning and
+transposition tables. The GUI is a React app that uses the chess.js library to
+handle the chess logic. The AI is run through a Golang server that is run on
+the same machine as the GUI. The GUI communicates with the server through
+websockets.
+
+===============================================================================
+                                Development areas
+===============================================================================
+
+GUI: React & Bootstrap
+GUI logic: chess.js 
+Webserver: Golang
+AI: Golang
