@@ -9,34 +9,40 @@ const DrawSquare = (prop) => {
     // color == 0 -> white
     // color == 1 -> black
 
-
     let color = 'dark';
+    let font_color = 'light';
 
     // can I simplify this?
     if ((prop.index + (Math.floor(prop.index / 8) - 1) % 2) % 2 === 0) {
+        // if white square
         color = 'light';
+        font_color = 'dark';
         }
         
+
+    function onSquareClick() {
+        prop.onLeftClick(prop.index, prop.id); // call parent function
+    }
 
     // html square
     return (
         <Col className='m-0 p-0'>
-            <Card className={`bg-${color} position-relative`} style={{height: 100}}>
-                {prop.index}
+            <Card className={`bg-${color} position-relative text-${font_color}`} style={{height: 100}} onClick={onSquareClick}>
+                {prop.id}
             </Card>
         </Col>
     );
 }
 
 
-const DrawBoard = () => {
+const DrawBoard = (props) => {
 
-    const columns = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+    const columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     const rows = ['1', '2', '3', '4', '5', '6', '7', '8'];
 
-    function OnClickSquare(index) {
-        console.log("clicked");
-        console.log(index);
+    function boardSquareClick(index, id) {
+        //console.log(`You clicked square ${id}  (${index})`);
+        props.onSquareSelect(index)
     }
 
     function CreateRow(props) {
@@ -58,15 +64,15 @@ const DrawBoard = () => {
         return (
             <Row id={rows[row]} class="d-inline-block position-absolute">
                 
-                <DrawSquare id={squareNames[0]} index={squareNums[0]} onClick={OnClickSquare(squareNums[0])}></DrawSquare>
-                <DrawSquare id={squareNames[1]} index={squareNums[1]} onClick={OnClickSquare(squareNums[1])}></DrawSquare>
-                <DrawSquare id={squareNames[2]} index={squareNums[2]} onClick={OnClickSquare(squareNums[2])}></DrawSquare>
-                <DrawSquare id={squareNames[3]} index={squareNums[3]} onClick={OnClickSquare(squareNums[3])}></DrawSquare>
-                <DrawSquare id={squareNames[4]} index={squareNums[4]} onClick={OnClickSquare(squareNums[4])}></DrawSquare>
-                <DrawSquare id={squareNames[5]} index={squareNums[5]} onClick={OnClickSquare(squareNums[5])}></DrawSquare>
-                <DrawSquare id={squareNames[6]} index={squareNums[6]} onClick={OnClickSquare(squareNums[6])}></DrawSquare>
-                <DrawSquare id={squareNames[7]} index={squareNums[7]} onClick={OnClickSquare(squareNums[7])}></DrawSquare>
- 
+                <DrawSquare id={squareNames[0]} index={squareNums[0]} onLeftClick={boardSquareClick}></DrawSquare>
+                <DrawSquare id={squareNames[1]} index={squareNums[1]} onLeftClick={boardSquareClick}></DrawSquare>
+                <DrawSquare id={squareNames[2]} index={squareNums[2]} onLeftClick={boardSquareClick}></DrawSquare>
+                <DrawSquare id={squareNames[3]} index={squareNums[3]} onLeftClick={boardSquareClick}></DrawSquare>
+                <DrawSquare id={squareNames[4]} index={squareNums[4]} onLeftClick={boardSquareClick}></DrawSquare>
+                <DrawSquare id={squareNames[5]} index={squareNums[5]} onLeftClick={boardSquareClick}></DrawSquare>
+                <DrawSquare id={squareNames[6]} index={squareNums[6]} onLeftClick={boardSquareClick}></DrawSquare>
+                <DrawSquare id={squareNames[7]} index={squareNums[7]} onLeftClick={boardSquareClick}></DrawSquare>
+
             </Row>
             );
         }
