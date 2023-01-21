@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "react-router-dom": "^6.7.0",
+    "sass": "^1.57.1",
+    "three": "^0.148.0",
+    "yarn": "^1.22.19"
+  }
+}

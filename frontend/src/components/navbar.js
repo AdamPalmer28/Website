@@ -1,4 +1,5 @@
 import { Nav, Navbar} from 'react-bootstrap';
+import { NavLink as Link } from "react-router-dom";
 
 const DrawNavbar = () => {
     return (
@@ -15,13 +16,16 @@ const DrawNavbar = () => {
             <Nav className="ms-auto">
 
                 <Nav.Item>
-                    <a className="nav-link" href="#">Home</a>
+                    <Link className="nav-link" to="/">Home</Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <a className="nav-link" href="#">About</a>
+                    <Link className="nav-link" to="/about">About</Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <a className="nav-link" href="#">Contact</a>
+                    <Link className="nav-link" to="/chess">Chess</Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Link className="nav-link" to="/space">Space</Link>
                 </Nav.Item>
 
             </Nav>

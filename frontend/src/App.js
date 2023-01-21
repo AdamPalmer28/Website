@@ -1,25 +1,14 @@
-import DrawChess from './components/chess/DrawChess.js';
 import DrawNavbar from './components/navbar.js';
-import Navbar from './components/navbar.js';
-
+import Main from './Main.js';
 //import './App.scss';
 
 
 const App = () =>{
-  console.log("hello world");
   return (
     <div className="App">
-      <header className="App-header">
-        <DrawNavbar/>
-      </header>
+      <DrawNavbar/>
+      <Main />
 
-      <body className="App-body">
-        Start Body
-
-        <DrawChess></DrawChess>
-        
-        End body
-      </body>
     </div>
   );
 }
