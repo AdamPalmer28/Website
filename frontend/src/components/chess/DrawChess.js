@@ -1,6 +1,6 @@
 // draw Chess board and squares
 
-import DrawBoard from './Board.js'
+import DrawBoard from './board.js'
 
 
 

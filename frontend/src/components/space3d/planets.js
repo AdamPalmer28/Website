@@ -21,11 +21,11 @@ const DrawObject = (props) => {
 
 
     // const [day_texture, night_texture] = useTexture(
-    //     ['https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg',
-    //     'https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg']);
-
-    const demo = useTexture('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg');
-
+    //     ['www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg',
+    //     'www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg']);
+    const url = 'hhttps://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg'
+    const day_texture = useTexture(url);
+    
 
     return (
     <Suspense fallback={<div>loading</div>}>
@@ -40,7 +40,7 @@ const DrawObject = (props) => {
 
 
             <sphereGeometry args={[3, 32, 32]} position={[0,0,0]} />
-            <meshStandardMaterial map={demo}/>
+            <meshStandardMaterial map={day_texture}/>
         </mesh>
     </Suspense>
     )
