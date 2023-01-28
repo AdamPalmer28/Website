@@ -21,18 +21,18 @@ const DrawObject = (props) => {
 
 
     // const [day_texture, night_texture] = useTexture(
-    //     ['www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg',
-    //     'www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg']);
-    const url = 'hhttps://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg'
-    const day_texture = useTexture(url);
+    //     ['https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg',
+    //     'https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg']);
+    const [day_texture, night_texture] = useLoader(TextureLoader, [
+        'http://127.0.0.1:5500/frontend/src/components/space3d/solar_textures/earth/2k_earth_daymap.jpg',
+        'http://127.0.0.1:5500/frontend/src/components/space3d/solar_textures/earth/2k_earth_nightmap.jpg']);
     
-
     return (
     <Suspense fallback={<div>loading</div>}>
         <mesh
             {...props}
             ref={mesh}
-            scale={active ? 0.5 : 1}
+            scale={1}
 
             onClick={(event) => setActive(!active)}
             onPointerOver={(event) => setHover(true)}
@@ -40,7 +40,7 @@ const DrawObject = (props) => {
 
 
             <sphereGeometry args={[3, 32, 32]} position={[0,0,0]} />
-            <meshStandardMaterial map={day_texture}/>
+            <meshStandardMaterial map={active ? day_texture : night_texture}/>
         </mesh>
     </Suspense>
     )
